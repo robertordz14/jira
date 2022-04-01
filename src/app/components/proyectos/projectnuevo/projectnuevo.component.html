@@ -1,0 +1,56 @@
+<app-navbar></app-navbar><br>
+<div class="container pt-2" id="fondo">
+  <div class="jumbotron m-3">
+    <div class="text-center">
+      <h3>Crear nuevo proyecto</h3>
+    </div>
+    <form [formGroup]="formularioproject">
+      <div class="mb-3">
+        <label for="proyectonombre" class="form-label">Nombre del proyecto</label>
+        <input
+          type="text"
+          class="form-control"
+          id="proyectonombre"
+          formControlName="proyectonombre"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="proyectodescripcion" class="form-label">Descripción del proyecto</label>
+        <input
+          type="text"
+          class="form-control"
+          id="proyectodescripcion"
+          formControlName="proyectodescripcion"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="IDusuario" class="form-label">Encargado del proyecto</label>
+        <select
+          class="form-select"
+          name="IDusuario"
+          id="IDusuario"
+          formControlName="IDusuario"
+        >
+          <option
+            *ngFor="let lista of listausuarios.rows; count as c"
+            ngValue="{{ lista.IDusuario }}"
+          >
+            {{ lista.usuarionombres }} {{ lista.usuarioapellidoP }}
+            {{ lista.usuarioapellidoM }}
+          </option>
+        </select>
+      </div>
+      <div class="text-center">
+        <input
+          [disabled]="!formularioproject.valid"
+          (click)="enviar()"
+          class="btn btn-outline-success"
+          value="Confirmar"
+          type="button"
+        />
+      </div>
+    </form>
+  </div><br>
+</div>
+
+<router-outlet></router-outlet>

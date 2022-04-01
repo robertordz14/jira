@@ -1,0 +1,27 @@
+<app-navbar></app-navbar><br>
+
+<div class="container" >
+    <div class="card mb-3" id="fondo">
+        <h2 class="card-header">Proyectos vigentes</h2>
+        <div class="card-body">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                      <th scope="col">Nombre del Proyecto</th>
+                      <th scope="col">Descripción del Proyecto</th>
+                      <th scope="col">Estado</th>
+                      <th scope="col">Usuario</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let proyecto of proyectoData">
+                      <td class="text-success" scope="row">{{proyecto.proyectonombre}}</td>
+                      <td>{{proyecto.proyectodescripcion}}</td>
+                      <td>{{proyecto.nombreestatus}}</td>
+                      <td>{{proyecto.nombre}}</td>
+                    </tr>
+                  </tbody>
+              </table>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,68 @@
+<app-navbar></app-navbar><br>
+<div class="container pt-2" id="fondo">
+  <div class="jumbotron m-3">
+    <div class="text-center">
+      <h3>Eliminar/Modificar Proyecto</h3>
+    </div> 
+    <form [formGroup]="formularioproyecto">
+      <div class="mb-3">
+        <label for="IDproyecto" class="form-label">Proyecto</label>
+        <select
+          (change)="data()"
+          class="form-select"
+          name="IDproyecto"
+          id="IDproyecto"
+          formControlName="IDproyecto"
+        >
+          <option
+            *ngFor="let lista of listaproyectos.rows; count as c"
+            ngValue="{{ lista.IDproyecto}}"
+          >
+            {{ lista.proyectonombre }}
+          </option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label for="proyectodescripcion" class="form-label">Descripción del proyecto</label>
+        <input
+          type="text"
+          class="form-control"
+          id="proyectodescripcion"
+          formControlName="proyectodescripcion"
+          placeholder="{{this.projectdata.proyectodescripcion}}"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="IDestado" class="form-label">Estado del proyecto</label>
+        <select
+          class="form-select"
+          name="IDestado"
+          id="IDestado"
+          formControlName="IDestado"
+          ngModel="{{this.projectdata.IDestado}}"
+
+        >
+        <option ngValue="1">Por iniciar</option>
+        <option ngValue="2">En desarrollo</option>
+        <option ngValue="3">En prueba</option>
+        <option ngValue="4">Finalizado</option>
+        <option ngValue="5">Cancelado</option>
+        <option ngValue="6">En pausa</option>
+
+        </select>
+      </div>
+      <div class="text-center">
+        <input
+          [disabled]="!formularioproyecto.valid"
+          (click)="enviar()"
+          class="btn btn-danger"
+          value="Modificar"
+          type="button"
+        />
+      </div><br>
+    </form>
+  </div>
+</div>
+
+<router-outlet></router-outlet>
+

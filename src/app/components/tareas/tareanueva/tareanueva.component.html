@@ -1,0 +1,73 @@
+<app-navbar></app-navbar><br>
+<div class="container pt-2" id="fondo">
+  <div class="jumbotron m-3">
+    <div class="text-center">
+      <h3>Crear nueva tarea</h3>
+    </div>
+    <form [formGroup]="formulariotarea">
+     
+      <div class="mb-3">
+        <label for="tareanombre" class="form-label">Nombre de la tarea</label>
+        <input
+          type="text"
+          class="form-control"
+          id="tareanombre"
+          formControlName="tareanombre"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="tareadescripcion" class="form-label">Descripción de la tarea</label>
+        <input
+          type="text"
+          class="form-control"
+          id="tareadescripcion"
+          formControlName="tareadescripcion"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="IDusuario" class="form-label">Encargado del proyecto</label>
+        <select
+          class="form-select"
+          name="IDusuario"
+          id="IDusuario"
+          formControlName="IDusuario"
+        >
+          <option
+            *ngFor="let lista of listausuarios.rows; count as c"
+            ngValue="{{ lista.IDusuario }}"
+          >
+            {{ lista.usuarionombres }} {{ lista.usuarioapellidoP }}
+            {{ lista.usuarioapellidoM }}
+          </option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label for="IDproyecto" class="form-label">Proyecto al que pertenece</label>
+        <select
+          class="form-select"
+          name="IDproyecto"
+          id="IDproyecto"
+          formControlName="IDproyecto"
+        >
+          <option
+            *ngFor="let lista of listaproyectos.rows; count as c"
+            ngValue="{{ lista.IDproyecto }}"
+          >
+            {{ lista.proyectonombre }}
+          </option>
+        </select>
+      </div>
+      <div class="text-center">
+        <input
+        [disabled]="!formulariotarea.valid"
+          (click)="enviar()"
+          class="btn btn-outline-success"
+          value="Confirmar"
+          type="button"
+        />
+      </div>
+    </form>
+  </div><br>
+</div>
+
+<router-outlet></router-outlet>

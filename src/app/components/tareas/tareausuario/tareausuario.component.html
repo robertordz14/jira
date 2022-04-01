@@ -1,0 +1,29 @@
+<app-navbar></app-navbar><br>
+
+<div class="container" >
+    <div class="card mb-3" id="fondo">
+        <h2 class="card-header">Tareas personales</h2>
+        <div class="card-body">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                      <th scope="col">Proyecto</th>
+                      <th scope="col">Encargado</th>
+                      <th scope="col">Tarea</th>
+                      <th scope="col">Descripcion de la tarea</th>
+                      <th scope="col">Estado</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let tarea of tareaData">
+                      <td class="text-success" scope="row">{{tarea.proyectonombre}}</td>
+                      <td>{{tarea.usuario}}</td>
+                      <td class="text-primary">{{tarea.tareanombre}}</td>
+                      <td>{{tarea.tareadescripcion}}</td>
+                      <td>{{tarea.nombreestatus}}</td>
+                    </tr>
+                  </tbody>
+              </table>
+        </div>
+    </div>
+</div>

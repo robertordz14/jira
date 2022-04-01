@@ -1,0 +1,27 @@
+<div>
+  <nav class="navbar navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand">JIRA</a>
+    </div>
+  </nav>
+</div> 
+<div class="container" id="fondo">
+  <div class="card mb-3">
+    <div class="card-body">
+      <h4>Inicia sesión</h4>
+      <form #frmLogin="ngForm" class="login-container" (ngSubmit)="onLogin(frmLogin)">
+        <div class="form-floating mb-3">
+          <input type="email" name="usuarioemail" class="form-control" ngModel required>
+          <label for="exampleInputEmail1" class="form-label">Correo Electronico</label>
+        </div>
+        <div class="form-floating mb-3">
+          <input type="password" name="usuariocontrasenya" class="form-control" ngModel required>
+          <label for="exampleInputPassword1" class="form-label">Contraseña</label>
+        </div>        
+        <div class="d-grid gap-2">
+        <button type="submit" value="Send" class="btn btn-warning btn-lg text-light">Iniciar sesión</button>
+        </div><br>
+      </form>
+    </div>
+  </div>
+</div>

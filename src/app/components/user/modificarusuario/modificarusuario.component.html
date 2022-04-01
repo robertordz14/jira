@@ -1,0 +1,129 @@
+<app-navbar></app-navbar><br>
+<div class="container pt-2 mb-4" id="fondo">
+  <div class="jumbotron m-3">
+    <div class="text-center">
+      <h3>Información personal</h3>
+    </div>
+    <form [formGroup]="formulariousuarioedit">
+      <div class="mb-3">
+        <label for="usuarionombres" class="form-label">Nombre(s)</label>
+        <input
+          type="text"
+          class="form-control"
+          id="usuarionombres"
+          formControlName="usuarionombres"
+          placeholder="{{this.userdata.usuarionombres}}"
+        />
+        <span
+        class="alert alert-danger"
+          *ngIf="
+            this.formulariousuarioedit
+              .get('usuarionombres')
+              ?.hasError('pattern') &&
+            this.formulariousuarioedit.get('usuarionombres')?.touched
+          "
+          >Este nombre no es valido</span
+        >
+      </div>
+      <div class="mb-3">
+        <label for="usuarioapellidoP" class="form-label">Apellido Paterno</label>
+        <input
+          type="text"
+          class="form-control"
+          id="usuarioapellidoP"
+          formControlName="usuarioapellidoP"
+          placeholder="{{this.userdata.usuarioapellidoP}}"
+        />
+        <span
+        class="alert alert-danger"
+          *ngIf="
+            this.formulariousuarioedit
+              .get('usuarioapellidoP')
+              ?.hasError('pattern') &&
+            this.formulariousuarioedit.get('usuarioapellidoP')?.touched
+          "
+          >Este apellido no es valido</span
+        >
+      </div>
+      <div class="mb-3">
+        <label for="usuarioapellidoM" class="form-label"
+          >Apellido Materno</label
+        >
+        <input
+          type="text"
+          class="form-control"
+          id="usuarioapellidoM"
+          formControlName="usuarioapellidoM"
+          placeholder="{{this.userdata.usuarioapellidoM}}"
+          aria-describedby="usuarioapellidoMhelp"
+        />
+        <span
+        class="alert alert-danger"
+          *ngIf="
+            this.formulariousuarioedit
+              .get('usuarioapellidoM')
+              ?.hasError('pattern') &&
+            this.formulariousuarioedit.get('usuarioapellidoM')?.touched
+          "
+          >Este apellido no es valido</span
+        >
+        <div id="usuarioapellidoMhelp" class="form-text">
+          Si no tiene segundo apellido favor de poner "NA"
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="usuarioemail" class="form-label">Correo electronico</label>
+        <input
+          type="text"
+          class="form-control"
+          id="usuarioemail"
+          formControlName="usuarioemail"
+          placeholder="{{this.userdata.usuarioemail}}"
+        />
+        <span
+        class="alert alert-danger"
+          *ngIf="
+            this.formulariousuarioedit
+              .get('usuarioemail')
+              ?.hasError('email') &&
+            this.formulariousuarioedit.get('usuarioemail')?.touched
+          "
+          >Correo electronico invalido</span
+        >
+      </div>
+      <div class="mb-3">
+        <label for="usuariotelefono" class="form-label"
+          >Numero telefonico</label
+        >
+        <input
+          type="text"
+          class="form-control"
+          id="usuariotelefono"
+          formControlName="usuariotelefono"
+          placeholder="{{this.userdata.usuariotelefono}}"
+        />
+        <span
+        class="alert alert-danger"
+          *ngIf="
+            this.formulariousuarioedit
+              .get('usuariotelefono')
+              ?.hasError('pattern') &&
+            this.formulariousuarioedit.get('usuariotelefono')?.touched
+          "
+          >Numero telefonico no valido</span
+        >
+      </div>
+      <div class="text-center">
+        <input
+          [disabled]="!formulariousuarioedit.valid"
+          (click)="enviar()"
+          class="btn btn-danger"
+          value="Modificar"
+          type="button"
+        />
+      </div><br>
+    </form>
+  </div>
+</div>
+
+<router-outlet></router-outlet>

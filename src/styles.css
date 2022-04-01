@@ -1,0 +1,19 @@
+/* You can add global styles to this file, and also import other style files */
+:root{
+    --gradient:  linear-gradient(to right, #e80033, #f9a852, #f69653, #f38654, #f07654, #ed6856, #ef5956, #ee4c58, #56c1ab);
+  }
+  *{
+    box-sizing: border-box;
+  }
+  body{
+    font-family: sans-serif;
+    color: #222;
+    background: rgb(255, 255, 234);
+    background-image: var(--gradient);
+    background-size: 400%;
+    animation: fondo-anim 5s infinite alternate;
+  }
+  @keyframes fondo-anim{
+    0%{background-position: left;} /*por defecto*/
+    100%{background-position: right;}
+  }

@@ -1,0 +1,13 @@
+.container{
+    justify-content: center;
+    width: 400px;
+    margin: 50px auto;
+}
+.card{
+    border-radius: 15px;
+    box-shadow: 10px 5px 5px 1px rgba(0, 0, 0, 0.2);
+}
+h4{
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+}

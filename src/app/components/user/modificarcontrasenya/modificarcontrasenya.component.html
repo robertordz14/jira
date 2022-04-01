@@ -1,0 +1,90 @@
+<app-navbar></app-navbar><br>
+<div class="container pt-2" id="fondo">
+  <div class="jumbotron m-3">
+    <div class="text-center">
+      <h3>Editar contraseña</h3>
+    </div>
+    <form [formGroup]="formulariocontrasenia">
+      <div class="mb-3">
+        <label for="usuariocontrasenyaold" class="form-label"
+          >Contraseña actual</label
+        >
+        <input
+          type="password"
+          class="form-control"
+          id="usuariocontrasenyaold"
+          formControlName="usuariocontrasenyaold"
+          placeholder="Ingresa tu contraseña actual"
+        />
+        <span
+          class="alert alert-danger"
+          *ngIf="
+            this.formulariocontrasenia.get('usuariocontrasenyaold')?.invalid &&
+            this.formulariocontrasenia.get('usuariocontrasenyaold')?.touched
+          "
+          >Contraseña invalida</span
+        >
+      </div>
+      <div class="mb-3">
+        <label for="usuariocontrasenyanew" class="form-label"
+          >Contraseña nueva</label
+        >
+        <input
+          type="password"
+          class="form-control"
+          id="usuariocontrasenyanew"
+          placeholder="Ingresa tu nueva contraseña"
+          formControlName="usuariocontrasenyanew"
+        />
+        <span
+          class="alert alert-danger"
+          *ngIf="
+              this.formulariocontrasenia.get('usuariocontrasenyanew')?.errors?.['required'] &&
+              this.formulariocontrasenia.get('usuariocontrasenyanew')?.touched
+            "
+          >Contraseña no valida</span
+        >
+      </div>
+      <div class="mb-3">
+        <label for="usuariocontrasenyaconf" class="form-label"
+          >Confirma tu nueva contraseña</label
+        >
+        <input
+          type="password"
+          class="form-control"
+          id="usuariocontrasenyaconf"
+          placeholder="Ingresa tu nueva contraseña"
+          formControlName="usuariocontrasenyaconf"
+        />
+        <span
+          class="alert alert-danger"
+          *ngIf="
+              this.formulariocontrasenia.get('usuariocontrasenyaconf')?.errors?.['required'] &&
+              this.formulariocontrasenia.get('usuariocontrasenyaconf')?.touched
+            "
+          >Se necesita confirmar la contraseña</span
+        >
+        <span
+          class="alert alert-danger"
+          *ngIf="
+              this.formulariocontrasenia.get('usuariocontrasenyaconf')?.errors?.['passwordMismatch'] &&
+              this.formulariocontrasenia.get('usuariocontrasenyaconf')?.touched
+            "
+        >
+          Las contraseñas no coinciden
+        </span>
+      </div>
+      <div class="text-center">
+        <input
+          [disabled]="!formulariocontrasenia.valid"
+          (click)="enviar()"
+          class="btn btn-danger"
+          value="Modificar"
+          type="button"
+        />
+      </div><br>
+    </form>
+  </div>
+</div>
+
+<router-outlet></router-outlet>
