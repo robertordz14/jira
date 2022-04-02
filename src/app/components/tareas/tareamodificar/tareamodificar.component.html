@@ -1,1 +1,69 @@
-<p>tareamodificar works!</p>
+<app-navbar></app-navbar><br>
+<div class="container pt-2" id="fondo">
+  <div class="jumbotron m-3">
+    <div class="text-center">
+      <h3>Eliminar/Modificar Tarea</h3>
+    </div> 
+    <form [formGroup]="formulariotareas">
+      <div class="mb-3">
+        <label for="IDtareas" class="form-label">Tarea</label>
+        <select
+          (change)="data()"
+          class="form-select"
+          name="IDtareas"
+          id="IDtareas"
+          formControlName="IDtareas"
+        >
+          <option
+            *ngFor="let lista of listatareas.rows; count as c"
+            ngValue="{{ lista.IDtareas}}"
+          >
+            {{ lista.tareanombre }}
+          </option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label for="tareadescripcion" class="form-label">Descripción de la tarea</label>
+        <input
+          type="text"
+          class="form-control"
+          id="tareadescripcion"
+          formControlName="tareadescripcion"
+          placeholder="{{this.projectdata.tareadescripcion}}"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="IDestado" class="form-label">Estado de la tarea</label>
+        <select
+          class="form-select"
+          name="IDestado"
+          id="IDestado"
+          formControlName="IDestado"
+          ngModel="{{this.projectdata.IDestado}}"
+
+        >
+        <option ngValue="1">Por iniciar</option>
+        <option ngValue="2">En desarrollo</option>
+        <option ngValue="3">En prueba</option>
+        <option ngValue="4">Finalizado</option>
+        <option ngValue="5">Cancelado</option>
+        <option ngValue="6">En pausa</option>
+
+        </select>
+      </div>
+      <div class="text-center">
+        <input
+          [disabled]="!formulariotareas.valid"
+          (click)="enviar()"
+          class="btn btn-danger"
+          value="Modificar"
+          type="button"
+        />
+      </div><br>
+    </form>
+  </div>
+</div>
+
+<router-outlet></router-outlet>
+
+  

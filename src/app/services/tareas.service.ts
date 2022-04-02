@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ProyectoPost } from '../models/proyectopost';
 import { Tarea } from '../models/tarea';
+import { TareaPut } from '../models/tareasput';
 
 
 @Injectable({
@@ -24,6 +25,14 @@ export class TareasService {
 
   posttarea(tarea: Tarea){
     return this.http.post(`${this.url}`,tarea);
+  }
+
+  getTarea(IDtareas: any){
+    return this.http.get(`${this.url}/tarea?IDtareas=${IDtareas}`)
+  }
+
+  putdatatarea(IDtareas: any,tareas: TareaPut){
+    return this.http.put(`${this.url}?IDtareas=${IDtareas}`,tareas);
   }
 
 

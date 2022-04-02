@@ -25,5 +25,10 @@
                   </tbody>
               </table>
         </div>
+        <div class="p-4 pt-2" *ngIf="this.SA == 0">
+          <div class="row text-center">
+            <div><h3 class="" style="color: red;">No existen tareas asignadas para este usuario</h3></div>
+          </div>
+        </div>
     </div>
 </div>
