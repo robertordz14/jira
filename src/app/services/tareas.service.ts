@@ -36,24 +36,6 @@ export class TareasService {
   }
 
 
-/*   getProyectoEstado(){
-    return this.http.get(`${this.url}/estados`) 
-  }
-  
-  getProyecto(IDproyecto: any){
-    return this.http.get(`${this.url}/proyecto?IDproyecto=${IDproyecto}`)
-  }
 
-  getProjectEspecific(IDusuario: any){
-    return this.http.get(`${this.url}/especific?IDusuario=${IDusuario}`);
-  }
 
-  postproject(project: Tarea){
-    return this.http.post(`${this.url}`,project);
-  }
-
-  putdataproject(IDproyecto: any,project: Tarea){
-    return this.http.put(`${this.url}?IDproyecto=${IDproyecto}`,project);
-  } */
-  
 }
